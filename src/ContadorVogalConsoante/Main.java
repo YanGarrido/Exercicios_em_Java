@@ -16,8 +16,7 @@ public class Main {
         for (int i = 0; i < frase.length(); i++){
             char c = frase.charAt(i);
             if(Character.isLetter(c)){
-                if(frase.charAt(i) == 'a' || frase.charAt(i) == 'e' || frase.charAt(i) == 'i'
-                        || frase.charAt(i) == 'o' || frase.charAt(i) == 'u'){
+                if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
                     quantVogais ++ ;
 
                 } else {

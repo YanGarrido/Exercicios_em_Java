@@ -22,5 +22,16 @@ public class Main {
             stringInvertida += c;
         }
         System.out.println("String invertida: " + stringInvertida);
+
+        System.out.println(inverterString(string));
+    }
+
+
+    public static String inverterString(String s){
+        if(s.isEmpty()){
+            return s;
+        }
+        return inverterString(s.substring(1)) + s.charAt(0);
+
     }
 }

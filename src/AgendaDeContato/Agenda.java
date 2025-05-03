@@ -3,11 +3,12 @@ package AgendaDeContato;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Contatos {
+public class Agenda {
+
     ArrayList<ArrayList<String>> contatos = new ArrayList<>();
 
     public static void main(String[] args) {
-        Contatos contato = new Contatos();
+        Agenda contatos = new Agenda();
         int sair = 0;
         Scanner sc = new Scanner(System.in);
         int escolha;
@@ -32,25 +33,26 @@ public class Contatos {
                     telefone = sc.nextLine();
                     System.out.print("Escreva o e-mail: ");
                     email = sc.nextLine();
-                    contato.adicionar(nome,telefone,email);
+                    Contato contato = new Contato(nome,telefone,email);
+                    contatos.adicionar(contato.nome, contato.telefone, contato.email);
                     break;
                 }
                 case 2:{
                     System.out.println("Listando todos os contatos");
-                    contato.listar();
+                    contatos.listar();
                     break;
 
                 }
                 case 3:{
                     System.out.print("Digite o nome do contato que você quer buscar: ");
                     nome = sc.nextLine();
-                    contato.buscar(nome);
+                    contatos.buscar(nome);
                     break;
                 }
                 case 4:{
                     System.out.print("Digite o nome do contato que você quer remover: ");
                     nome = sc.nextLine();
-                    System.out.println(contato.remover(nome));
+                    System.out.println(contatos.remover(nome));
                     break;
                 }
                 case 5:{

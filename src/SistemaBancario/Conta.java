@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Conta {
     Scanner sc = new Scanner(System.in);
-    Cliente cliente;
+    private Cliente cliente;
     double saldo;
 
     public Conta(Cliente cliente){
@@ -47,5 +47,9 @@ public class Conta {
 
     public void exibirSaldo() {
         System.out.println("Saldo atual de " + cliente.getNomeCompleto() + ": R$" + saldo);
+    }
+
+    public Cliente getCliente() {
+        return cliente;
     }
 }

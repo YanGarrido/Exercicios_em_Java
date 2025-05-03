@@ -1,10 +1,10 @@
 package SistemaBancario;
 
 public class Cliente {
-    String nome;
+    private String nome;
     String sobrenome;
     int idade;
-    String numConta;
+    private String numConta;
 
     public Cliente(String nome, String sobrenome, int idade, String numConta){
         this.nome = nome;
@@ -14,5 +14,12 @@ public class Cliente {
     }
     public String getNomeCompleto(){
         return nome + " " + sobrenome;
+    }
+
+    public String getNumConta(){
+        return numConta;
+    }
+    public String getNome(){
+        return nome;
     }
 }

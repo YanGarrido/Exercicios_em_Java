@@ -1,5 +1,6 @@
 package AgendaDeContato;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -45,6 +46,36 @@ public class Agenda {
         }
         return "Contato não encontrado";
 
+    }
+
+    public void salvarArquivo(String nomeArquivo){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))){
+            for (Contato contato : contatos){
+                String linha = contato.nome + ";" + contato.telefone + ";" + contato.email;
+                writer.write(linha);
+                writer.newLine();
+            }
+            System.out.println("Contatos salvos com sucesso em: " + nomeArquivo);
+        } catch (IOException e){
+            System.out.println("Erro ao salvar os contatos: " + e.getMessage());
+        }
+    }
+
+    public void carregarArquivo(String nomeArquivo){
+        contatos.clear();
+        try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                String[] dados = linha.split(";");
+                if (dados.length == 3) {
+                    Contato contato = new Contato(dados[0], dados[1], dados[2]);
+                    contatos.add(contato);
+                }
+            }
+            System.out.println("Contatos carregados com sucesso de: " + nomeArquivo);
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar os contatos: " + e.getMessage());
+        }
     }
 
 }

@@ -14,7 +14,8 @@ public class Main {
 
         while (sair == 0){
             System.out.println("AGENDA DE CONTATOS");
-            System.out.println("1. Adicionar\n2. Listar\n 3. Buscar\n 4. Remover\n 5. Sair");
+            System.out.println("1. Adicionar\n2. Listar\n3. Buscar\n4. Remover\n" +
+                    "5. Sair\n6. Salvar em Arquivo\n7. Carregar Arquivo");
             System.out.print("Escolha sua opção: ");
             escolha = sc.nextInt();
             sc.nextLine();
@@ -53,6 +54,14 @@ public class Main {
                 case 5:{
                     System.out.println("Saindo da Agenda");
                     sair ++;
+                    break;
+                }
+                case 6:{
+                    agenda.salvarArquivo("contatos.txt");
+                    break;
+                }
+                case 7:{
+                    agenda.carregarArquivo("contatos.txt");
                     break;
                 }
                 default:{

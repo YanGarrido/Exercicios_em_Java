@@ -60,19 +60,22 @@ public class Main {
   }
 
   public String validarCpf(String cpf){
+    cpf = cpf.replaceAll("\\D","");
     int verificadorUm = calcularVerificadorUm(cpf);
     if(cpf.length() != 11){
-      return "CPF INVALDIDO";
+      return "CPF INVÁLiDO";
     }
 
-    // verificar sequencia repetida a fazer
+    if(cpf.chars().distinct().count() == 1){
+      return "CPF INVÁLIDO";
+    }
 
     if(verificadorUm != Character.getNumericValue(cpf.charAt(9))){
-      return "CPF INVALIDO";
+      return "CPF INVÁLIDO";
     }
     int verificadorDois = calcularVerificadorDois(cpf, verificadorUm);
     if(verificadorDois != Character.getNumericValue(cpf.charAt(10))){
-      return "CPF INVALIDO";
+      return "CPF INVÁLIDO";
     }
     return "SEU CPF É VALIDO";
   }

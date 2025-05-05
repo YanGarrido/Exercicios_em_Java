@@ -29,7 +29,7 @@ public class SistemaLogin {
 
   public void login(String nome,String senha){
     if(!usuarios.containsKey(nome)){
-      System.out.println("Usuário nã0 encontrado.");
+      System.out.println("Usuário não encontrado.");
       return;
     }
 

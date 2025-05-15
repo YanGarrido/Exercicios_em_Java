@@ -3,7 +3,7 @@ package SistemaBancario;
 import java.util.Scanner;
 
 public class Conta {
-    Scanner sc = new Scanner(System.in);
+
     private Cliente cliente;
     double saldo;
 

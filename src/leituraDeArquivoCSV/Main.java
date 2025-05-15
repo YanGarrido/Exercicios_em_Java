@@ -15,7 +15,7 @@ public class Main {
         String[] valores = linha.split(",");
 
         for(String valor : valores){
-          System.out.print(valor + " ");
+          System.out.print(valor + " | ");
         }
         System.out.println();
       }
